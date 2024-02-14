@@ -1,0 +1,13 @@
+{
+  "version": "0.1.3",
+  "name": "gallery-control",
+  "scripts": {
+    "start": "npm run build",
+    "start:firefox": "npm exec web-ext run --source-dir ./",
+    "build": "npm exec web-ext -- build --source-dir ./ --overwrite-dest",
+    "build:zip": "zip -r gallery-control.xpi manifest.json gallery-control.js"
+  },
+  "devDependencies": {
+    "web-ext": "^7.11.0"
+  }
+}
