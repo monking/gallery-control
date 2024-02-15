@@ -1,10 +1,12 @@
 {
-  "version": "0.1.5",
+  "version": "0.1.4",
   "name": "gallery-control",
   "scripts": {
     "start": "npm run build",
     "start:firefox": "npm exec web-ext run --source-dir ./",
-    "build": "npm exec web-ext -- build --source-dir ./ --overwrite-dest",
+    "build": "npm run build:moz; npm run build:unpacked",
+    "build:moz": "npm exec web-ext -- build --source-dir src/ --overwrite-dest",
+    "build:unpacked": "mkdir -p dist/unpacked && cp src/* dist/unpacked/ && jq '.manifest_version = 3 | delpaths([[\"browser_specific_settings\"]])' src/manifest.json > dist/unpacked/manifest.json",
     "build:zip": "zip -r gallery-control.xpi manifest.json gallery-control.js"
   },
   "devDependencies": {
