@@ -2,7 +2,19 @@
 
 View next/previous image in a sequence with tap, click, or keyboard.
 
+
+
+## how to install
+
+
+Search "Gallery Control" in your browser's add-on/extension manager,
+or visit [the add-on's page at AMO](https://addons.mozilla.org/en-US/firefox/addon/gallery-control/)
+using Firefox.
+
+
+
 ## how to use
+
 
 ### commands
 
@@ -22,6 +34,7 @@ View next/previous image in a sequence with tap, click, or keyboard.
 \*The rate when unpaused is taken from the recent rate of issuing "next"/"previous" commands.
 It defaults to 1Hz if the user has not established a rate, or if that rate is slower than the minimum (currently 0.25Hz, or once every 4 seconds).
 
+
 ### pointer regions
 
 Left, Right, Top, Middle, Bottom
@@ -37,6 +50,7 @@ Left, Right, Top, Middle, Bottom
 - Left and Right are the outer 25% horizontally.
 - Top and Bottom are the outer 25% vertically (excluding after Left and Right)
 - Middle is the 50% left over in the middle.
+
 
 
 ## how to build
