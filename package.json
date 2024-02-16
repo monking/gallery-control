@@ -1,6 +1,7 @@
 {
-  "version": "0.1.4",
+  "version": "0.1.5",
   "name": "gallery-control",
+  "description": "View next/previous image in a sequence with mouse/touch or keyboard.",
   "scripts": {
     "start": "npm run build",
     "start:firefox": "npm exec web-ext run --source-dir ./",

@@ -1,8 +1,8 @@
 {
   "manifest_version": 2,
   "name": "Gallery Control",
-  "version": "0.1.4",
-  "description": "Enable viewing next/previous images in a sequence.",
+  "version": "0.1.5",
+  "description": "View next/previous image in a sequence with mouse/touch or keyboard.",
   "icons": {},
   "content_scripts": [
     {

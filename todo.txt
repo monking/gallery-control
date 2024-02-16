@@ -1,0 +1,1 @@
+(B) 2024-02-15 (Optionally) use commands API for browser extensions.  <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/manifest.json/commands>
