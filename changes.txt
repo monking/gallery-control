@@ -1,0 +1,14 @@
+0.1.4
+- Repackaged without extraneous properties in manifest.json
+- First published version
+
+0.1.5
+- Must explicitly unpause, or set option allowAutoStart: true. Will not begin playing after doing next/previous.
+- Tapping middle toggles pause
+- Other refinements around state
+
+0.1.6
+- Update window address with current image URL,enabling continuation after tab is unloaded.
+
+NEXT
+- Added key bindings: `hjkl` as `←↓↑→` equivalents (Vi style), plus `,.` for `←→`

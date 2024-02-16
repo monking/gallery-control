@@ -287,18 +287,25 @@ window.galleryControlInterface = ((options = {}) => {
         autoAdvance.stop();
         break;
       case "Space":
+      case "KeyP":
         allowAutoAdvance && autoAdvance.togglePause();
         break;
       case "ArrowLeft":
+      case "KeyH":
+      case "Comma":
         delta.position = -1;
         break;
       case "ArrowRight":
+      case "KeyL":
+      case "Period":
         delta.position = 1;
         break;
       case "ArrowUp":
+      case "KeyK":
         delta.size = 1;
         break;
       case "ArrowDown":
+      case "KeyJ":
         delta.size = -1;
         break;
       default:
