@@ -80,6 +80,7 @@ window.galleryControlInterface = ((options = {}) => {
     });
     if (newUrl !== currentUrl) {
       img.src = newUrl;
+      window.history.replaceState({}, '', newUrl);
     }
     return img;
   };
@@ -133,7 +134,7 @@ window.galleryControlInterface = ((options = {}) => {
     return Object.keys(delta).reduce((acc, dimension) => acc || (delta[dimension] !== 0), false);
   };
   const handleMouseDown = (e) => {
-		// Let secondary/right click through.
+    // Let secondary/right click through.
     if (e.defaultPrevented || e.button === 2 || e.altKey || e.ctrlKey) return;
     e.preventDefault();
     const _defaultPointerAction = (ignore) => {
@@ -324,16 +325,16 @@ window.galleryControlInterface = ((options = {}) => {
     style.classList.add(CLASS_GALLERY_CREATED);
     style.innerHTML =
       'img {' +
-				'object-fit: contain;' +
-				'width: 100vw;' +
-				'height: 100vh;' +
-				'transition-property: opacity;' +
-				'transition-duration: 2s;' +
+        'object-fit: contain;' +
+        'width: 100vw;' +
+        'height: 100vh;' +
+        'transition-property: opacity;' +
+        'transition-duration: 2s;' +
       '}'+
       '.hide-cursor {' +
-				'cursor: none;' +
+        'cursor: none;' +
       '}' +
-			'';
+      '';
       // WISH (B) 2024-02-08 Enable zooming in, but still fit thumbnail and full to window normally. Might not be a CSS solution.
     document.body.appendChild(style);
     img.addEventListener('error', handleImageError);
