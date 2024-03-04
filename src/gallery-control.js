@@ -1,3 +1,4 @@
+// license: http://www.gnu.org/licenses/lgpl-3.0.html
 if (typeof window?.galleryControlInterface?.unset === 'function') {
   window.galleryControlInterface?.unset();
 }
