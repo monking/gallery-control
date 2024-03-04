@@ -8,13 +8,14 @@ View next/previous image in a sequence with tap, click, or keyboard.
 
 
 Search "Gallery Control" in your browser's add-on/extension manager,
-or visit [the add-on's page at AMO](https://addons.mozilla.org/en-US/firefox/addon/gallery-control/)
+or visit [the add-ons page at AMO](https://addons.mozilla.org/en-US/firefox/addon/gallery-control/)
 using Firefox.
 
 
 
 ## how to use
 
+Tap left/right to advance in that direction. Tap center or spacebar to continue at that same rate\*.
 
 ### commands
 
