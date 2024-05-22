@@ -1,13 +1,16 @@
 {
   "manifest_version": 2,
   "name": "Gallery Control",
-  "version": "0.1.6",
+  "version": "0.1.7",
   "description": "View next/previous image in a sequence with mouse/touch or keyboard.",
   "icons": {},
   "content_scripts": [
     {
       "matches": [
-        "*://*.trekcore.com/*.jpg"
+        "*://*.trekcore.com/gallery/albums/*.jpg",
+        "*://*.trekcore.com/gallery/albums/*.JPG",
+        "*://*.trekcore.com/gallery/albums/*.jpeg",
+        "*://*.trekcore.com/gallery/albums/*.JPEG"
       ],
       "js": [
         "gallery-control.js"
