@@ -15,8 +15,8 @@ window.galleryControlInterface = ((options = {}) => {
     isDebugging,
   } = {
     imageSelector: 'img',
-    thumbPattern: /^(.*\/)(thumb_)([^\/]+.jpg)/,
-    fullPattern: /^(.*\/)([^\/]+.jpg)/,
+    thumbPattern: /^(.*\/)(thumb_)([^\/]+.jpe?g)/i,
+    fullPattern: /^(.*\/)([^\/]+.jpe?g)/i,
     fullReplacetoThumb: '$1thumb_$2',
     waitForError: 1000,
     cursorTimeout: 1000,
@@ -25,9 +25,10 @@ window.galleryControlInterface = ((options = {}) => {
     isDebugging: false,
     ...options,
   };
+	const LOG_PREFIX = `[Gallery Control] `;
   const getImage = () => document.querySelector(imageSelector);
   const advanceUrl = (url, delta) => {
-    return url.replace(/([0-9]+)(\.jpg)/, (whole, number, extension) => {
+    return url.replace(/([0-9]+)(\.jpe?g)/i, (whole, number, extension) => {
       let output = String(Math.max(0, Number(number) + delta));
       while (output.length < number.length) { output = "0"+output; }; return output+extension;
     });
@@ -232,7 +233,7 @@ window.galleryControlInterface = ((options = {}) => {
       } else {
         pause();
       }
-      if (isDebugging) console.log('bump auto', {influence, ...state});
+      console.log(LOG_PREFIX+'bump auto', {influence, ...state});
     };
     const next = () => {
       if (isDebugging) console.log('next auto', state);
@@ -252,6 +253,7 @@ window.galleryControlInterface = ((options = {}) => {
         }
       }
       state.isPaused = false;
+			console.info(LOG_PREFIX+`starting auto advance: ${state.rate} Hz`);
       next();
     };
     const pause = () => {
@@ -275,7 +277,12 @@ window.galleryControlInterface = ((options = {}) => {
   };
   const autoAdvance = createAutoAdvance(options);
   const handleKey = (e) => {
-    if (e.defaultPrevented) return;
+    if (e.defaultPrevented) {
+			console.info(LOG_PREFIX+`skipping key press ${e.code}: default prevented`);
+			return;
+		} else {
+			console.info(LOG_PREFIX+`handling key press: ${e.code}`);
+		}
     if (e.altKey || e.ctrlKey) {
       return; // No modifiers, currently
     }
@@ -326,6 +333,7 @@ window.galleryControlInterface = ((options = {}) => {
     }
     const img = getImage();
     if (!img) {
+			console.info("Gallery Control does NOT find an image.");
       return;
     }
     document.body.classList.add(CLASS_GALLERY_HOOKED);
